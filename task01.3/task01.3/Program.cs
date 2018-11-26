@@ -21,19 +21,24 @@ namespace task01._3
                 n++;
             }
 
-            sum = 0;n = 0; tochnost = 0.00001; en = 1;
-            Console.WriteLine("Первый ряд");
+            sum = 0;n = 0; tochnost = 0.00000001; en = 1;
+            Console.WriteLine("Второй ряд");
             while (Math.Abs(en) > tochnost)
             {
                 
                 en = 4 * ((Math.Pow(-1, n) )/(2 * n + 1));
                 sum = sum + en;
                 //Console.WriteLine("en = " +en);
-                Console.WriteLine("n = " + n + " Сумма ряда = " + sum);
 
+                if ((n % (0.1/(tochnost)))==0)
+                {
+                    Console.WriteLine("n = " + n + " Сумма ряда = " + sum);
+                }
+                    
+                //Console.WriteLine(n % 100);
                 n++;
             }
-            //Console.WriteLine("n = " + n + " Сумма ряда = " + sum);
+            Console.WriteLine("ИТОГ   n = " + n + " Сумма ряда = " + sum);
             Console.ReadKey();
         }
         static double Factorial(double x)
