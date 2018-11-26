@@ -25,17 +25,12 @@ namespace task01._3
             Console.WriteLine("Второй ряд");
             while (Math.Abs(en) > tochnost)
             {
-                
                 en = 4 * ((Math.Pow(-1, n) )/(2 * n + 1));
                 sum = sum + en;
-                //Console.WriteLine("en = " +en);
-
                 if ((n % (0.1/(tochnost)))==0)
                 {
                     Console.WriteLine("n = " + n + " Сумма ряда = " + sum);
                 }
-                    
-                //Console.WriteLine(n % 100);
                 n++;
             }
             Console.WriteLine("ИТОГ   n = " + n + " Сумма ряда = " + sum);
