@@ -23,7 +23,11 @@ namespace task01._4
             }
             Console.ReadKey();
         }
-
+        /// <summary>
+        /// Возвращает цвет в зависимости от входного параметра 0-15
+        /// </summary>
+        /// <param name="v">Номер цвета</param>
+        /// <returns></returns>
         private static ConsoleColor SetColor(int v)
         {
             switch(v)
@@ -46,7 +50,7 @@ namespace task01._4
                 default: return ConsoleColor.Black;
 
             }
-            //throw new NotImplementedException();
+            
         }
     }
 }

@@ -18,12 +18,12 @@ namespace task01._5
             while (((int)k.KeyChar) != 27)
             {
                 uKey = r.Next(40, 126);
-                Console.WriteLine("                   Нажмите клавишу " + (char)uKey);
+                Console.WriteLine("\nНажмите клавишу " + (char)uKey);
                 k = Console.ReadKey(true);
                 if (uKey == (int)k.KeyChar)
                 {
                     count++;
-                    Console.WriteLine(" Верно   " + k.KeyChar + " count = "+count);
+                    Console.WriteLine("Верно " + k.KeyChar + " Правильных нажатий: "+count);
                    
                 }
                 else
@@ -32,66 +32,107 @@ namespace task01._5
                     eCount++;
                     count = 0;
                 }
-                if (count == 10)
+                if (count == 1)
                 {
                     Console.Clear();
                     Fkruto();
-                    //Console.WriteLine(" Ты крут "); break;
+                    
                     count = 0;
                 }
                 if (eCount == 3)
                 {
-                    Console.WriteLine(" КРИВОРУКИЙ!!! "); break;
+                    
+                    for (int i = 0; i < 15; ++i)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = SetColor(r.Next(1,15));
+                        Console.SetCursorPosition(49, 10);
+                        Console.WriteLine("ТРИ ОШИБКИ!!!  ПОКА!!!");
+                        Thread.Sleep(500);
+                    }
+                  
+                    break;
                 }
-                //Console.WriteLine((int)k.KeyChar);
+               
             }
 
 
-            Console.ReadKey();
+          
 
         }
         static void Fkruto()
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            int[] x = new int[] { 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 11, 10,
-                9, 10, 11, 12, 12, 12, 12,//k
+            Random r = new Random();
+            //Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //Console.ForegroundColor = SetColor(r.Next(1, 15));
+            int[] x = new int[] {
 
-                14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  //Р
-                15, 16, 17, 17, 17, 16, 15,
+                14, 14, 14, 14, 14, 14, 14, 14, 14, 14,   20,19,18,17,16,16,17,18,19,20,//K
+                25,25,25,25,25,25,25,25,25,25,      27,29,30,30,30,30,29,27,
+                35,35,35,35,36,38,40,   41,41,41,41,41,41,41,41,41,40,38,36,35,
+                46,48,50,52,    49,49,49,49,49,49,49,49,49,
+                57,57,57,57,57,57,57,57,    58,60,62,   63,63,63,63,63,63,63,63, 58,60,62,
 
-                19, 19, 19, 19, 20, 23, 23, 23, 23, 23,22,22,22,21,21,21,20,20,19,19,//У
-                25,26,27,28,29,27,27,27,27,27,27,27,27,27,  //Т
-                31,31,31,31,31,31,32,33,34,35,36,36,36,36,36,36,35,34,33,32, //О
-
-                38,39,38,39,38,39,38,39,38,39,38,39,38,39,38,39,38,39,
-
+                70,70,70,70,70,70,70,70,70,
+                75,75,75,75,75,75,75,75,75,
+                80,80,80,80,80,80,80,80,80,
                 };
-            int[] y = new int[] { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 8, 9, 10,
-                12, 13, 14, 15, 16, 17,//k
+            int[] y = new int[] {
 
-                8, 9, 10, 11, 12, 13, 14, 15, 16, 17,   //Р
-                8, 8, 9, 10, 11, 12, 12,
-
-                8, 9, 10, 11, 12, 8, 9, 10, 11, 12, 12,13,14,13,14,15,15,16,16,17, // У
-                8,8,8,8,8,9,10,11,12,13,14,15,16,17,  //Т
-                10,11,12,13,14,15,16,17,17,16,15,14,13,12,11,10,9,8,8,9, //О
-
-                8,8,9,9,10,10,11,11,12,12,13,13,14,14,16,16,17,17,
-
+                8,9,10,11,12,13,14,15,16,17,       8,9,10,11,12,13,14,15,16,17,//К
+                8,9,10,11,12,13,14,15,16,17,        8,8,9,10,11,12,13,13,
+                8,9,10,11,12,12,12,     8,9,10,11,12,13,14,15,16,17,17,17,16,
+                8,8,8,8,    9,10,11,12,13,14,15,16,17,  
+                9,10,11,12,13,14,15,16, 17,17,17,   9,10,11,12,13,14,15,16, 8,8,8,
+                8,9,10,11,12,13,14,16, 17,
+                8,9,10,11,12,13,14,16, 17,
+                8,9,10,11,12,13,14,16, 17,
                };
             for (int i = 0; i < x.Length; i++)
             {
 
                 Console.SetCursorPosition(x[i], y[i]);
-                Console.Write("*");
-                Thread.Sleep(100);
+                Console.ForegroundColor = SetColor(r.Next(1, 15));
+                Console.Write("**");
+                Thread.Sleep(50);
             }
+        
+
             Console.SetCursorPosition(1, 20);
             Console.ReadKey();
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
 
             
+
+        }
+        /// <summary>
+        /// Возвращает цвет в зависимости от входного параметра 0-15
+        /// </summary>
+        /// <param name="v">Номер цвета</param>
+        /// <returns></returns>
+        private static ConsoleColor SetColor(int v)
+        {
+            switch (v)
+            {
+                case (1): return ConsoleColor.DarkBlue; break;
+                case (2): return ConsoleColor.DarkGreen; break;
+                case (3): return ConsoleColor.DarkCyan; break;
+                case (4): return ConsoleColor.DarkRed; break;
+                case (5): return ConsoleColor.DarkMagenta; break;
+                case (6): return ConsoleColor.DarkYellow; break;
+                case (7): return ConsoleColor.Gray; break;
+                case (8): return ConsoleColor.DarkGray; break;
+                case (9): return ConsoleColor.Blue; break;
+                case (10): return ConsoleColor.Green; break;
+                case (11): return ConsoleColor.Cyan; break;
+                case (12): return ConsoleColor.Red; break;
+                case (13): return ConsoleColor.Magenta; break;
+                case (14): return ConsoleColor.Yellow; break;
+                case (15): return ConsoleColor.White; break;
+                default: return ConsoleColor.Black;
+
+            }
 
         }
     }
