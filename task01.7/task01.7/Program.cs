@@ -12,6 +12,7 @@ namespace task01._7
         {
             Random r = new Random();
             int[] ar = new int[30];
+
             Console.WriteLine("Исходный массив");
             for (int i = 0; i < ar.Length; ++i)
             {
