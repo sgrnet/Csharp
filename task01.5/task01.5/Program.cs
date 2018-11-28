@@ -64,6 +64,8 @@ namespace task01._5
         }
         static void Fkruto()
         {
+            Console.WindowWidth = 120;
+            Console.WindowHeight = 30;
             Random r = new Random();
             //Console.ForegroundColor = ConsoleColor.DarkYellow;
             //Console.ForegroundColor = SetColor(r.Next(1, 15));
@@ -95,7 +97,7 @@ namespace task01._5
                 8,9,10,11,12,13,14,16, 17,
                };
             
-            for (int p = 10; p > 0; --p)
+            for (int p = 50; p > 1; p/=2)
             {
                 for (int i = 0; i < x.Length; i++)
                 {
