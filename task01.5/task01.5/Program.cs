@@ -11,90 +11,144 @@ namespace task01._5
     {
         static void Main(string[] args)
         {
-            ConsoleKeyInfo k = new ConsoleKeyInfo();//40-126
-            Random r = new Random();
-            int uKey, count = 0, eCount = 0 ;
-
-            while (((int)k.KeyChar) != 27)
+            ConsoleKeyInfo uKb;
+            Random rnd = new Random();
+            ConsoleKey key;
+            int eCount = 0, wCount = 0;
+            do
             {
-                uKey = r.Next(40, 126);
-                Console.WriteLine("\nНажмите клавишу " + (char)uKey);
-                k = Console.ReadKey(true);
-                if (uKey == (int)k.KeyChar)
+                var kb = Enum.GetValues(typeof(ConsoleKey));
+
+                key = (ConsoleKey)rnd.Next(65, 90);
+                Console.WriteLine("Нажми клавишу " + key);
+                uKb = Console.ReadKey(true);
+
+                if (uKb.Key == key)
                 {
-                    count++;
-                    Console.WriteLine("Верно " + k.KeyChar + " Правильных нажатий: "+count);
-                   
+                    Console.WriteLine("Попал " + uKb.Key);
+                    wCount++;
                 }
                 else
                 {
-                    Console.WriteLine("Ошибка" + k.KeyChar);
+                    Console.WriteLine("Ошибка " + uKb.Key);
                     eCount++;
-                    count = 0;
+                    wCount = 0;
                 }
-                if (count == 1)
+                if (wCount == 10)
                 {
-                    Console.Clear();
-                    //Fkruto();
-
-                    Action pohvala = Fkruto;
-                    Parallel.Invoke(pohvala/*, pohvala, pohvala*/);
-                    count = 0;
+                    //Console.WriteLine("Ты крут");
+                    Fkruto();
+                    wCount = 0;
+                   // Console.ReadKey();
+                    continue;
                 }
                 if (eCount == 3)
                 {
-                    
-                    for (int i = 0; i < 15; ++i)
-                    {
-                        Console.Clear();
-                        Console.ForegroundColor = SetColor(r.Next(1,15));
-                        Console.SetCursorPosition(49, 10);
-                        Console.WriteLine("ТРИ ОШИБКИ!!!  ПОКА!!!");
-                        Thread.Sleep(500);
-                    }
-                  
-                    break;
+                    //Console.WriteLine("Лошара");
+                    FLose();
+                    eCount = 0;
+                    //Console.ReadKey();
+                    continue;
                 }
-               
+
+
+            } while ((int)uKb.Key != 27);
+        }
+        static void FLose()
+        {
+            Console.Clear();
+            int sdvig_x = 5, sdvig_y = 7;
+            int cw, ch;
+            Random r = new Random();
+ 
+            int[] x = new int[] {
+
+            0,0,0,0,0,0,0,0,0,0,2,4,6,6,6,6,6,6,6,6,6,6,
+            15,14,13,12,11,11,11,11,11,11,17,17,17,17,17,17,17,17,17,17,
+            24,23,22,22,22,22,22,22,23,24,26,27,28,28,28,28,28,28,27,26,
+            33,33,34,35,36,35,34,33,33,33,39,39,38,37,37,38,39,39,39,
+            47,46,45,45,45,45,45,45,46,47,49,50,51,51,51,51,51,51,50,49,
+                };
+            int[] y = new int[] {
+
+            0,1,2,3,4,5,6,7,8,9,0,0,0,1,2,3,4,5,6,7,8,9,
+            0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,
+            0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,
+            0,1,2,3,4,5,6,7,8,9,0,1,2,3,5,6,7,8,9,
+            0,1,2,3,4,5,6,7,8,9,9,8,7,6,5,4,3,2,1,0,
+               };
+
+
+            //Array.Sort(x);
+            cw = Console.WindowWidth;
+            ch = Console.WindowHeight;
+            Console.WindowWidth = 120;
+            Console.WindowHeight = 30;
+            for (int p = 50; p > 1; p /= 2)
+            {
+                for (int i = 0; i < x.Length; i++)
+                {
+
+                    Console.SetCursorPosition(x[i] + sdvig_x, y[i] + sdvig_y);
+                  
+                    Console.ForegroundColor = ConsoleColor.White;//         SetColor(r.Next(1, 15));
+                    Console.Write("8(");
+                    Thread.Sleep(p);
+                }
+                for (int i = 0; i < x.Length; i++)
+                {
+
+                    Console.SetCursorPosition(x[i] + sdvig_x, y[i] + sdvig_y);
+                 
+                    Console.ForegroundColor = /*ConsoleColor.White; */         SetColor(r.Next(1, 15));
+                    Console.Write("(");
+                    Thread.Sleep(p);
+                }
             }
 
 
-          
 
+            Console.SetCursorPosition(1, 20);
+           
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WindowWidth = cw;
+            Console.WindowHeight = ch;
+            Console.Clear();
         }
         static void Fkruto()
         {
+            Console.Clear();
+            int sdvig_x = 10, sdvig_y = 10;
             Console.WindowWidth = 120;
             Console.WindowHeight = 30;
             Random r = new Random();
-            //Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Console.ForegroundColor = SetColor(r.Next(1, 15));
+        
             
             
             int[] x = new int[] {
-                
 
-                14, 14, 14, 14, 14, 14, 14, 14, 14, 14,   20,19,18,17,16,16,17,18,19,20,//K
-                25,25,25,25,25,25,25,25,25,25,      27,29,30,30,30,30,29,27,
-                35,35,35,35,36,38,40,   41,41,41,41,41,41,41,41,41,40,38,36,35,
-                46,48,50,52,    49,49,49,49,49,49,49,49,49,
-                57,57,57,57,57,57,57,57,    58,60,62,   63,63,63,63,63,63,63,63, 58,60,62,
-                70,70,70,70,70,70,70,70,70,
-                75,75,75,75,75,75,75,75,75,
-                80,80,80,80,80,80,80,80,80,
 
+                0,0,0,0,0,0,0,0,0,0,6,5,4,3,2,2,3,4,5,6,
+                11,11,11,11,11,11,11,11,11,11,13,15,16,16,16,16,15,13,
+                21,21,21,21,22,24,26,27,27,27,27,27,27,27,27,27,26,24,22,21,
+                32,34,36,38,35,35,35,35,35,35,35,35,35,
+                43,43,43,43,43,43,43,43,44,46,48,49,49,49,49,49,49,49,49,44,46,48,
+                56,56,56,56,56,56,56,56,56,
+                61,61,61,61,61,61,61,61,61,
+                66,66,66,66,66,66,66,66,66
                 };
             int[] y = new int[] {
-               
 
-                8,9,10,11,12,13,14,15,16,17,       8,9,10,11,12,13,14,15,16,17,//К
-                8,9,10,11,12,13,14,15,16,17,        8,8,9,10,11,12,13,13,
-                8,9,10,11,12,12,12,     8,9,10,11,12,13,14,15,16,17,17,17,16,
-                8,8,8,8,    9,10,11,12,13,14,15,16,17,  
-                9,10,11,12,13,14,15,16, 17,17,17,   9,10,11,12,13,14,15,16, 8,8,8,
-                 8,9,10,11,12,13,14,16, 17,
-                8,9,10,11,12,13,14,16, 17,
-                8,9,10,11,12,13,14,16, 17,
+                0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,
+                0,1,2,3,4,5,6,7,8,9,0,0,1,2,3,4,5,5,
+                0,1,2,3,4,4,4,0,1,2,3,4,5,6,7,8,9,9,9,8,
+                0,0,0,0,1,2,3,4,5,6,7,8,9,
+                1,2,3,4,5,6,7,8,9,9,9,1,2,3,4,5,6,7,8,0,0,0,
+                0,1,2,3,4,5,6,8,9,
+                0,1,2,3,4,5,6,8,9,
+                0,1,2,3,4,5,6,8,9
+                            
                };
             
             for (int p = 50; p > 1; p/=2)
@@ -102,17 +156,18 @@ namespace task01._5
                 for (int i = 0; i < x.Length; i++)
                 {
 
-                    Console.SetCursorPosition(x[i], y[i]);
+                    Console.SetCursorPosition(x[i]+ sdvig_x, y[i]+ sdvig_y);
+                    
                     Console.ForegroundColor = ConsoleColor.White;//         SetColor(r.Next(1, 15));
-                    Console.Write("()");
+                    Console.Write("8)");
                     Thread.Sleep(p);
                 }
                 for (int i = 0; i < x.Length; i++)
                 {
 
-                    Console.SetCursorPosition(x[i], y[i]);
+                    Console.SetCursorPosition(x[i]+ sdvig_x, y[i]+ sdvig_y);
                     Console.ForegroundColor = /*ConsoleColor.White; */         SetColor(r.Next(1, 15));
-                    Console.Write("/");
+                    Console.Write("8");
                     Thread.Sleep(p);
                 }
             }
@@ -120,7 +175,8 @@ namespace task01._5
 
 
             Console.SetCursorPosition(1, 20);
-            Console.ReadKey();
+            
+            Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
 
