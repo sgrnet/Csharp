@@ -66,37 +66,52 @@ namespace task01._5
             //Console.ForegroundColor = ConsoleColor.DarkYellow;
             //Console.ForegroundColor = SetColor(r.Next(1, 15));
             int[] x = new int[] {
+                
 
                 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,   20,19,18,17,16,16,17,18,19,20,//K
                 25,25,25,25,25,25,25,25,25,25,      27,29,30,30,30,30,29,27,
                 35,35,35,35,36,38,40,   41,41,41,41,41,41,41,41,41,40,38,36,35,
                 46,48,50,52,    49,49,49,49,49,49,49,49,49,
                 57,57,57,57,57,57,57,57,    58,60,62,   63,63,63,63,63,63,63,63, 58,60,62,
-
                 70,70,70,70,70,70,70,70,70,
                 75,75,75,75,75,75,75,75,75,
                 80,80,80,80,80,80,80,80,80,
+
                 };
             int[] y = new int[] {
+               
 
                 8,9,10,11,12,13,14,15,16,17,       8,9,10,11,12,13,14,15,16,17,//К
                 8,9,10,11,12,13,14,15,16,17,        8,8,9,10,11,12,13,13,
                 8,9,10,11,12,12,12,     8,9,10,11,12,13,14,15,16,17,17,17,16,
                 8,8,8,8,    9,10,11,12,13,14,15,16,17,  
                 9,10,11,12,13,14,15,16, 17,17,17,   9,10,11,12,13,14,15,16, 8,8,8,
-                8,9,10,11,12,13,14,16, 17,
+                 8,9,10,11,12,13,14,16, 17,
                 8,9,10,11,12,13,14,16, 17,
                 8,9,10,11,12,13,14,16, 17,
                };
-            for (int i = 0; i < x.Length; i++)
+            
+            for (int p = 10; p > 0; --p)
             {
+                for (int i = 0; i < x.Length; i++)
+                {
 
-                Console.SetCursorPosition(x[i], y[i]);
-                Console.ForegroundColor = SetColor(r.Next(1, 15));
-                Console.Write("**");
-                Thread.Sleep(50);
+                    Console.SetCursorPosition(x[i], y[i]);
+                    Console.ForegroundColor = ConsoleColor.White;//         SetColor(r.Next(1, 15));
+                    Console.Write("88");
+                    Thread.Sleep(p);
+                }
+                for (int i = 0; i < x.Length; i++)
+                {
+
+                    Console.SetCursorPosition(x[i], y[i]);
+                    Console.ForegroundColor = /*ConsoleColor.White; */         SetColor(r.Next(1, 15));
+                    Console.Write("88");
+                    Thread.Sleep(p);
+                }
             }
-        
+            
+
 
             Console.SetCursorPosition(1, 20);
             Console.ReadKey();

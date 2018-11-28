@@ -12,12 +12,13 @@ namespace task01._4
         static void Main(string[] args)
         {
             string str = "C#";
-            int max_x = 119, max_y = 29, max_color = 15;
+            int max_x = Console.WindowWidth, max_y = Console.WindowHeight, max_color = 15;
             Random r = new Random();
+            
             for (int i = 0; i<300; ++i)
             {
                 Console.ForegroundColor = SetColor(r.Next(1, max_color));
-                Console.SetCursorPosition(r.Next(1, max_x), r.Next(1, max_y));
+                Console.SetCursorPosition(r.Next(1, Console.WindowWidth), r.Next(1, Console.WindowHeight));
                 Console.Write(str + i);
                 Thread.Sleep(50);
             }
