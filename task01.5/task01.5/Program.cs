@@ -35,8 +35,10 @@ namespace task01._5
                 if (count == 1)
                 {
                     Console.Clear();
-                    Fkruto();
-                    
+                    //Fkruto();
+
+                    Action pohvala = Fkruto;
+                    Parallel.Invoke(pohvala/*, pohvala, pohvala*/);
                     count = 0;
                 }
                 if (eCount == 3)
@@ -65,6 +67,8 @@ namespace task01._5
             Random r = new Random();
             //Console.ForegroundColor = ConsoleColor.DarkYellow;
             //Console.ForegroundColor = SetColor(r.Next(1, 15));
+            
+            
             int[] x = new int[] {
                 
 
@@ -98,7 +102,7 @@ namespace task01._5
 
                     Console.SetCursorPosition(x[i], y[i]);
                     Console.ForegroundColor = ConsoleColor.White;//         SetColor(r.Next(1, 15));
-                    Console.Write("88");
+                    Console.Write("()");
                     Thread.Sleep(p);
                 }
                 for (int i = 0; i < x.Length; i++)
@@ -106,7 +110,7 @@ namespace task01._5
 
                     Console.SetCursorPosition(x[i], y[i]);
                     Console.ForegroundColor = /*ConsoleColor.White; */         SetColor(r.Next(1, 15));
-                    Console.Write("88");
+                    Console.Write("/");
                     Thread.Sleep(p);
                 }
             }
