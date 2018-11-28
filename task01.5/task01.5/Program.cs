@@ -79,12 +79,12 @@ namespace task01._5
                };
 
 
-            //Array.Sort(x);
+            
             cw = Console.WindowWidth;
             ch = Console.WindowHeight;
             Console.WindowWidth = 120;
             Console.WindowHeight = 30;
-            for (int p = 50; p > 1; p /= 2)
+            for (int p = 20; p > 1; p /= 2)
             {
                 for (int i = 0; i < x.Length; i++)
                 {
@@ -108,7 +108,7 @@ namespace task01._5
 
 
 
-            Console.SetCursorPosition(1, 20);
+            Console.SetCursorPosition(1, 1);
            
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
@@ -151,7 +151,7 @@ namespace task01._5
                             
                };
             
-            for (int p = 50; p > 1; p/=2)
+            for (int p = 20; p > 1; p/=2)
             {
                 for (int i = 0; i < x.Length; i++)
                 {
@@ -174,7 +174,7 @@ namespace task01._5
             
 
 
-            Console.SetCursorPosition(1, 20);
+            Console.SetCursorPosition(1, 1);
             
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
