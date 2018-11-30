@@ -78,7 +78,7 @@ namespace task2._1
         static void Main(string[] args)
         {
             Console.WriteLine("Введите строку");
-            string s = "Пример строки";
+            string s = "Пример строки";  
             s = Console.ReadLine();
             Console.WriteLine("res % 8 = " + CalcString(s));
             
