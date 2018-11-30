@@ -81,7 +81,7 @@ namespace task2._1
             string s = "Пример строки";  
             s = Console.ReadLine();
             Console.WriteLine("res % 8 = " + CalcString(s));
-            
+             
         }
     }
 }
