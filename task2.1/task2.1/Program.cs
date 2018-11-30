@@ -66,7 +66,7 @@ namespace task2._1
             int res = 0;
             do
             {
-               res = res + (int)n[0] * CountSymInArr(n[0], n);
+               res = res + n[0] * CountSymInArr(n[0], n);
                Console.WriteLine("res " + res + " sym " + n[0] + " count " + CountSymInArr(n[0], n) +" kod " + (int)n[0]);
                n = DelSym(n[0], n);
             } while (n.Length > 0);
