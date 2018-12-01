@@ -72,7 +72,7 @@ namespace KNB
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Неперавильный ввод. Ваш выбор - Ножницы");
+                    Console.WriteLine("Неправильный ввод. Ваш выбор - Ножницы");
                     Console.WriteLine();
 
                     Console.WriteLine("Для выхода введите '-1'" , 500);
