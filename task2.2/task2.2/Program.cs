@@ -10,32 +10,35 @@ namespace task2._2
     {
         static void Main(string[] args)
         {
-            Worker w = new Worker();
-            List<Worker> lw;
-            lw = new List<Worker>();
-            lw.Add(w);
-          
-            Worker.PrintInfo(w);
-            w.Perevod("Закупки");
-
-            w.AddStazh(1);
-            //w.PrintInfo();
            
-            w.Perevod("Корпоративные продажи");
-            w.Perevod("Администрация");
-            Worker.PrintHist(w);
-            Worker.PrintInfo(w);
+            Worker Vadim = new Worker("Сидоров Вадим Михайлович", "Транспортный отдел", "Водитель", 4);
+            Vadim.NewPosition("Транспортный отдел", "Экспедитор");
+            Vadim.NewPosition("Транспортный отдел", "Слесарь по ремонту ТС");
+            Vadim.NewPosition("Транспортный отдел", "Начальник смены");
+            Vadim.NewPosition("Транспортный отдел", "Зам начальника отдела");
+            Vadim.AddExpirence(5);
+            Vadim.PrintCareer();
+            Console.WriteLine(new string('*', 30));
+            Vadim.PrintStatus();
+            Console.WriteLine(new string('/', 80));
 
-            Worker w2 = new Worker(2, "Иван", "Транспортный отдел", 0, "Водитель");
-            //Console.WriteLine("stazh " + w.GetStazh());
-            Worker.PrintHist(w2); 
-            w2.Perevod("Логистика");
-            w2.Perevod("Бухгалтерия", "Консультант");
-            Console.WriteLine("PrintHist");
-            Worker.PrintHist(w);
-            w = w2;
-            Worker.PrintHist(w);
+            Console.WriteLine(new string('*', 30));
+            Worker w = new Worker("Сергей Петрович Грибоедов");
+            w.NewPosition("Кадры", "Специалист по кадрам");
+            w.AddExpirence();
+            w.NewPosition("Кадры", "Старший специалист");
+            w.AddExpirence();
+            w.NewPosition("Кадры", "Начальник отдела");
+            w.PrintCareer();
+            Console.WriteLine(new string('*', 30));
+            w.PrintStatus();
+            Console.WriteLine(new string('*', 30));
+            Worker b = new Worker();
+            b.PrintStatus();
+
+
             Console.ReadKey();
+
         }
     
     }

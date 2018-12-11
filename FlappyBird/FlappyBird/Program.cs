@@ -146,25 +146,25 @@ namespace FlappyBird
                 
                 
                 Console.WriteLine("Заготовка Floppy Bird");
-                int pf = 1500;
+                int pf = 150;
                 for (int p = 0; p< 50; p += 2)
                 {
-                    //Print(b1, p, 0, pf);
-                    //Print(b2, p+2, 0, pf);
-                    //Print(b3, p+4, 0, pf);
-                    //Print(b4, p+6, 0, pf);
-                    //Print(b5, p+8, 0, pf);
-                    //Print(b4, p+10, 0, pf);
-                    //Print(b3, p+12, 0, pf);
-                    //Print(b2, p+14, 0, pf);
                     Print(b1, p, 0, pf);
-                    Print(b2, p , 0, pf);
-                    Print(b3, p , 0, pf);
-                    Print(b4, p , 0, pf);
-                    Print(b5, p , 0, pf);
-                    Print(b4, p , 0, pf);
-                    Print(b3, p , 0, pf);
-                    Print(b2, p , 0, pf);
+                    Print(b2, p + 2, 0, pf);
+                    Print(b3, p + 4, 0, pf);
+                    Print(b4, p + 6, 0, pf);
+                    Print(b5, p + 8, 0, pf);
+                    Print(b4, p + 10, 0, pf);
+                    Print(b3, p + 12, 0, pf);
+                    Print(b2, p + 14, 0, pf);
+                    //Print(b1, p, 0, pf);
+                    //Print(b2, p , 0, pf);
+                    //Print(b3, p , 0, pf);
+                    //Print(b4, p , 0, pf);
+                    //Print(b5, p , 0, pf);
+                    //Print(b4, p , 0, pf);
+                    //Print(b3, p , 0, pf);
+                    //Print(b2, p , 0, pf);
                     Console.SetCursorPosition(0, 1);
                     Console.WriteLine("p= {0}", p);
                     Console.SetCursorPosition(0, 0);

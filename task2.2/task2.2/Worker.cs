@@ -3,102 +3,93 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace task2._2
 {
 //    Класс – работник(для системы управления предприятием).
 //Примеры свойств: идентификатор, стаж, отдел.Примеры
 //методов: Перевод в отдел, Повысить, Получить сводку
+    struct Pos
+    {
+        public string Department;
+        public string Position;
+    }
     class Worker
     {
-        private int stazh;
-        private string otdel;
-        private string name;
         private readonly int id;
-        private string dolzhnost;
-        private List<string> otdList;
-        private List<string> dlList;
-        public Worker()
+        private string name;
+        private int experience; //стаж
+        private string department; //отдел
+        private string position; //должность
+       
+        private List<Pos> posList; // список должностей
+        Random r = new Random();
+
+        public Worker() : this("Новый работник", "Бухгалтерия")
         {
-            Random rnd = new Random();
-            this.id = rnd.Next(1, 5000);
-            this.stazh = 0;
-            this.otdel = "Кадры";
-            this.name = "Евгений";
-            this.dolzhnost = "Стажер";
-            this.otdList =  new List<string>();
-            this.dlList = new List<string>();
-            //stList.Add(this.otdel);
-        }
-        public Worker(int id, string name,  string otdel, int stazh, string dolzhnost )
-        {
-            this.id = id;
-            this.stazh = stazh;
-            this.otdel = otdel;
-            this.name = name;
-            this.dolzhnost = dolzhnost;
-            this.dlList = new List<string>();
-            this.otdList = new List<string>();
-            
-        }
-        public static void  PrintInfo(Worker w)
-        {
-            Console.WriteLine("Id: " + w.id);
-            Console.WriteLine("Имя: " + w.name);
-            Console.WriteLine("Отдел: " + w.Otdel);
-            Console.WriteLine("Должность: " + w.dolzhnost);
-            Console.WriteLine("Стаж: " + w.stazh);
-        }
-        public bool Perevod(string NewOtdel)
-        {
-            this.otdList.Add(this.otdel);
-            this.stazh++;
-            this.otdel = NewOtdel;
-            return true;
-        }
-        public bool Perevod(string NewOtdel, string dolzhnost)
-        {
-            this.otdList.Add(this.otdel);
-            this.dlList.Add(this.dolzhnost);
-            this.stazh++;
-            this.otdel = NewOtdel;
-            this.dolzhnost = dolzhnost;
-            return true;
-        }
-        public void SetStazh(int n)
-        {
-            this.stazh = n;
-        }
-        public int GetStazh()
-        {
-            int n = this.stazh;
-            return n;
-        }
-        public bool AddStazh(int i)
-        {
-            this.stazh = this.stazh + i;
-            return true;
-        }
-        public static void PrintHist(Worker worker)
-        {
-            Console.WriteLine("==========================");
-            Console.WriteLine(worker.name);
-            foreach(string el in worker.otdList)
-            {
-                Console.WriteLine("Отдел :" + el);
-            }
-            Console.WriteLine("Сейчас в отделе: " + worker.otdel);
-            foreach (string el in worker.dlList)
-            {
-                Console.WriteLine("Должность :" + el);
-            }
-            Console.WriteLine("Сейчас: " + worker.dolzhnost);
-            Console.WriteLine("==========================");
+            this.Position = "Стажер";
         }
 
+        public Worker(string name = "New", string department = "Кадры", string position = "Стажер",  int experience = 0)
+        {
+            id = r.Next(1, 5000);
+            this.Name = name;
+            this.Experience = experience;
+            this.Department = department;
+            this.Position = position;
+            posList = new List<Pos>();
+        }
+
+        
+
+        public void PrintCareer()
+        {
+            WriteLine("Работник: {0} \nТабельный номер: {1} \nСтаж: {2}", Name, Id, Experience);
+            foreach(Pos p in PosList)
+            {
+                WriteLine($"Отдел: {p.Department}, Должность: {p.Position} ");
+            }
+        }
+
+        public void NewPosition(string department, string position)
+        {
+            Pos p;
+            p.Department = this.Department;
+            p.Position = this.Position;
+            PosList.Add(p);
+            Position = position;
+            Department = department;
+        }
+           
        
-        public string Otdel { get => otdel; set => otdel = value; }
+        public void AddExpirence(int expierence)
+        {
+            this.Experience += expierence; 
+        }
+
+        public void AddExpirence()
+        {
+            this.Experience += 1;
+        }
+
+        public void PrintStatus()
+        {
+            WriteLine("Работник: \nID {0}, \nИмя {1}, \nСтаж {2}, \nОтдел {3}, \nДолжность {4} ", Id, Name, Experience, Department, Position);
+        }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+           
+        }
+
         public string Name { get => name; set => name = value; }
-       
+        public int Experience { get => experience; set => experience = value; }
+        public string Department { get => department; set => department = value; }
+        public string Position { get => position; set => position = value; }
+        internal List<Pos> PosList { get => posList; set => posList = value; }
     }
 }
