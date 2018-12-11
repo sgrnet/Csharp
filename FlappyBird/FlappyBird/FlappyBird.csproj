@@ -4,13 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0AD4C02B-7E63-4059-95D1-C01AB941F041}</ProjectGuid>
+    <ProjectGuid>{E7F8E1C0-B79D-4627-9F0D-35192F6D3A85}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>task2._2</RootNamespace>
-    <AssemblyName>task2.2</AssemblyName>
+    <RootNamespace>FlappyBird</RootNamespace>
+    <AssemblyName>FlappyBird</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,11 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Department.cs" />
-    <Compile Include="Office.cs" />
+    <Compile Include="Bird.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

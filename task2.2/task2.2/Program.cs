@@ -11,9 +11,11 @@ namespace task2._2
         static void Main(string[] args)
         {
             Worker w = new Worker();
-            
+            List<Worker> lw;
+            lw = new List<Worker>();
+            lw.Add(w);
           
-            w.PrintInfo();
+            Worker.PrintInfo(w);
             w.Perevod("Закупки");
 
             w.AddStazh(1);
@@ -22,14 +24,17 @@ namespace task2._2
             w.Perevod("Корпоративные продажи");
             w.Perevod("Администрация");
             Worker.PrintHist(w);
-            w.PrintInfo();
+            Worker.PrintInfo(w);
 
             Worker w2 = new Worker(2, "Иван", "Транспортный отдел", 0, "Водитель");
             //Console.WriteLine("stazh " + w.GetStazh());
             Worker.PrintHist(w2); 
             w2.Perevod("Логистика");
             w2.Perevod("Бухгалтерия", "Консультант");
-            Worker.PrintHist(w2);
+            Console.WriteLine("PrintHist");
+            Worker.PrintHist(w);
+            w = w2;
+            Worker.PrintHist(w);
             Console.ReadKey();
         }
     

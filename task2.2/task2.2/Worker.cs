@@ -39,15 +39,15 @@ namespace task2._2
             this.dolzhnost = dolzhnost;
             this.dlList = new List<string>();
             this.otdList = new List<string>();
-            //Console.WriteLine(this.Name);
+            
         }
-        public  void  PrintInfo()
+        public static void  PrintInfo(Worker w)
         {
-            Console.WriteLine("Id: " + this.id);
-            Console.WriteLine("Имя: " + this.name);
-            Console.WriteLine("Отдел: " + this.Otdel);
-            Console.WriteLine("Должность: " + this.dolzhnost);
-            Console.WriteLine("Стаж: " + this.stazh);
+            Console.WriteLine("Id: " + w.id);
+            Console.WriteLine("Имя: " + w.name);
+            Console.WriteLine("Отдел: " + w.Otdel);
+            Console.WriteLine("Должность: " + w.dolzhnost);
+            Console.WriteLine("Стаж: " + w.stazh);
         }
         public bool Perevod(string NewOtdel)
         {
@@ -96,9 +96,9 @@ namespace task2._2
             Console.WriteLine("==========================");
         }
 
-       // public int Id { get => id; set => id = value; }
+       
         public string Otdel { get => otdel; set => otdel = value; }
         public string Name { get => name; set => name = value; }
-        //public int Stazh { get => stazh; set => stazh = value; }
+       
     }
 }

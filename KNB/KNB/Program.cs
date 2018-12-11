@@ -70,13 +70,12 @@ namespace KNB
                 {
                     num = int.Parse(str);
                 }
-                catch
+                catch (FormatException)
                 {
-                    Console.WriteLine("Неп" +
-                        "равильный ввод. Ваш выбор - Ножницы");
+                    Console.WriteLine("Неправильный ввод. Ваш выбор - Ножницы");
                     Console.WriteLine();
 
-                    Console.WriteLine("Для выхода введите '-1'" );
+                    Console.WriteLine("Для выхода введите '-1'" , 500);
                     Console.WriteLine();
                     num = 1;
                 }
