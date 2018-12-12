@@ -35,10 +35,7 @@ namespace task2._2
             Console.WriteLine(new string('*', 30));
             Worker b = new Worker();
             b.PrintStatus();
-
-
             Console.ReadKey();
-
         }
     
     }
