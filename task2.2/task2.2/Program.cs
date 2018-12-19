@@ -36,6 +36,7 @@ namespace task2._2
             Worker b = new Worker();
             b.PrintStatus();
             Console.ReadKey();
+            
         }
     
     }

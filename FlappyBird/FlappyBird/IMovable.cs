@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlappyBird
 {
-    class Bird 
+    interface IMovable
     {
-        AssetBird ab = new AssetBird();
+        bool MoveToPoint(Point pos);
 
-       
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace FlappyBird
 {
-    class Bird 
+    interface IDrawable
     {
-        AssetBird ab = new AssetBird();
-
-       
+        bool Draw(Point pos);
+        bool Clear(Point pos);
+        
     }
 }

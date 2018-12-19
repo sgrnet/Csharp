@@ -126,51 +126,63 @@ namespace FlappyBird
         static void Main(string[] args)
         {
           
-            Console.WindowHeight = 40;
-            Console.WindowWidth = 100;
-            SetBufferSize(WindowWidth, WindowHeight);
-            int x = 0, y = 0;
-            Point[] b1 = new Point[9];
-            Point[] b2 = new Point[8];
-            Point[] b3 = new Point[4];
-            Point[] b4 = new Point[8];
-            Point[] b5 = new Point[7];
+            //Console.WindowHeight = 40;
+            //Console.WindowWidth = 100;
+            //SetBufferSize(WindowWidth, WindowHeight);
+            //int x = 0, y = 0;
+            //Point[] b1 = new Point[9];
+            //Point[] b2 = new Point[8];
+            //Point[] b3 = new Point[4];
+            //Point[] b4 = new Point[8];
+            //Point[] b5 = new Point[7];
 
             
-            SetBird(20, 15, ref b1, ref b2, ref b3, ref b4, ref b5);
+            //SetBird(20, 15, ref b1, ref b2, ref b3, ref b4, ref b5);
 
-            
-
-            for (int i = 0; i < 10; i++)
+            AssetBird ab = new AssetBird();
+            Console.CursorVisible = false;
+            for (int i = 0; i < 8; i++)
             {
-                
-                
-                Console.WriteLine("Заготовка Floppy Bird");
-                int pf = 150;
-                for (int p = 0; p< 50; p += 2)
-                {
-                    Print(b1, p, 0, pf);
-                    Print(b2, p + 2, 0, pf);
-                    Print(b3, p + 4, 0, pf);
-                    Print(b4, p + 6, 0, pf);
-                    Print(b5, p + 8, 0, pf);
-                    Print(b4, p + 10, 0, pf);
-                    Print(b3, p + 12, 0, pf);
-                    Print(b2, p + 14, 0, pf);
-                    //Print(b1, p, 0, pf);
-                    //Print(b2, p , 0, pf);
-                    //Print(b3, p , 0, pf);
-                    //Print(b4, p , 0, pf);
-                    //Print(b5, p , 0, pf);
-                    //Print(b4, p , 0, pf);
-                    //Print(b3, p , 0, pf);
-                    //Print(b2, p , 0, pf);
-                    Console.SetCursorPosition(0, 1);
-                    Console.WriteLine("p= {0}", p);
-                    Console.SetCursorPosition(0, 0);
-                }
-          
+                ab.DrawAsset(i);
+                Thread.Sleep(500);
+                ab.ClearAsset(i);
+               // Thread.Sleep(50);
             }
+
+
+            
+            Console.CursorVisible = true;
+
+            //for (int i = 0; i < 10; i++)
+            //{
+
+            //    Console.WriteLine("Заготовка Floppy Bird");
+
+            //    int pf = 550;
+            //    for (int p = 0; p< 50; p += 2)
+            //    {
+            //        Print(b1, p, 0, pf);
+            //        Print(b2, p + 2, 0, pf);
+            //        Print(b3, p + 4, 0, pf);
+            //        Print(b4, p + 6, 0, pf);
+            //        Print(b5, p + 8, 0, pf);
+            //        Print(b4, p + 10, 0, pf);
+            //        Print(b3, p + 12, 0, pf);
+            //        Print(b2, p + 14, 0, pf);
+            //        //Print(b1, p, 0, pf);
+            //        //Print(b2, p , 0, pf);
+            //        //Print(b3, p , 0, pf);
+            //        //Print(b4, p , 0, pf);
+            //        //Print(b5, p , 0, pf);
+            //        //Print(b4, p , 0, pf);
+            //        //Print(b3, p , 0, pf);
+            //        //Print(b2, p , 0, pf);
+            //        Console.SetCursorPosition(0, 1);
+            //        Console.WriteLine("p= {0}", p);
+            //        Console.SetCursorPosition(0, 0);
+            //    }
+
+            //}
 
             Console.ReadKey();
             

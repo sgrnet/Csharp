@@ -25,7 +25,11 @@ namespace task2._2
        
         private List<Pos> posList; // список должностей
         Random r = new Random();
-
+        ~Worker()
+        {
+            Console.WriteLine("Finalize");
+            Console.ReadKey();
+        }
         public Worker() : this("Новый работник", "Бухгалтерия")
         {
             this.Position = "Стажер";
@@ -33,6 +37,7 @@ namespace task2._2
 
         public Worker(string name = "New", string department = "Кадры", string position = "Стажер",  int experience = 0)
         {
+            Worker.StatMethod();
             id = r.Next(1, 5000);
             this.Name = name;
             this.Experience = experience;
@@ -40,7 +45,10 @@ namespace task2._2
             this.Position = position;
             posList = new List<Pos>();
         }
-
+        public static void StatMethod()
+        {
+            Console.WriteLine("Вызов статического метода");
+        }
         
 
         public void PrintCareer()

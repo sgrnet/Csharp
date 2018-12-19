@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace FlappyBird
 {
-    class Bird 
+    class Asset
     {
-        AssetBird ab = new AssetBird();
+        public Point[][] FlyState;
 
-       
+        public Asset(Point[][] flyState)
+        {
+            FlyState = flyState;
+        }
     }
 }
